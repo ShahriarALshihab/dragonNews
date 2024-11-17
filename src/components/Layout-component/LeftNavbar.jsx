@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 
 const LeftNavbar = () => {
@@ -17,7 +18,7 @@ const LeftNavbar = () => {
             <div className="flex flex-col items-start justify-start gap-3">
                 {
                     categories.map((category) => (
-                        <button className="text-sm text-gray-500 hover:underline" key={category.category_id}>{category.category_name}</button>
+                        <NavLink to={`/category/${category.category_id}`} className="text-sm text-gray-500" key={category.category_id}>{category.category_name}</NavLink>
                     ))
                 }
             </div>

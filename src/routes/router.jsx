@@ -1,9 +1,9 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import MainLayout from "../components/MainLayout";
-import Home from "../Pages/Home";
-import About from "../Pages/About";
+
 import Error from "../components/Error";
-import Career from "../Pages/Career";
+import CategoryNews from "../Pages/CategoryNews";
+
 
 const router = createBrowserRouter([
   {
@@ -11,17 +11,15 @@ const router = createBrowserRouter([
     element: <MainLayout> </MainLayout>,
     children: [
       {
-        path: "/",
-        element: <Home></Home>,
+        path: "",
+        element:<Navigate to={"/category/01"} replace></Navigate>
       },
       {
-        path: "/about",
-        element: <About></About>,
-        },
-        {
-            path: "/career",
-            element:<Career></Career>
+        path: "/category/:id",
+        element: <CategoryNews></CategoryNews>,
+        loader:({params})=>fetch(`https://openapi.programming-hero.com/api/news/category/${params.id}`),
       }
+      
     ],
     },
     {

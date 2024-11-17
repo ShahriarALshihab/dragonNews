@@ -3,8 +3,8 @@ import Navbar from "./Navbar";
 import Header from "./Header";
 import LatestNews from "./LatestNews";
 import LeftNavbar from "./Layout-component/LeftNavbar";
-import MainSection from "./Layout-component/MainSection";
 import RightNavbar from "./Layout-component/RightNavbar";
+import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
@@ -23,9 +23,11 @@ const MainLayout = () => {
           <LeftNavbar></LeftNavbar>
         </aside>
         <section className="col-span-6">
-          <MainSection></MainSection>
+          
+            <Outlet></Outlet>
+         
         </section>
-        <aside className="col-span-3">
+        <aside className="right col-span-3">
           <RightNavbar></RightNavbar>
         </aside>
       </main>
